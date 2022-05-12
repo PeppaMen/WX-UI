@@ -1,0 +1,89 @@
+{
+  "name": "wx-ui",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*",
+    "play",
+    "docs"
+  ],
+  "scripts": {
+    "cz": "git-cz",
+    "dev": "vite",
+    "clean": "pnpm run clean:dist",
+    "clean:dist": "rimraf dist",
+    "build": "gulp --require sucrase/register/ts -f build/gulpfile.ts",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 && pretty-quick --check --branch dev",
+    "lint:fix": "eslint --fix . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json && pretty-quick --branch dev",
+    "preview": "vite preview",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "@vueuse/core": "^7.7.1",
+    "@wx-ui/components": "workspace:*",
+    "@wx-ui/hooks": "workspace:*",
+    "@wx-ui/tokens": "workspace:*",
+    "@wx-ui/utils": "workspace:*",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "lodash-unified": "^1.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@eslint/create-config": "^0.2.0",
+    "@pnpm/find-workspace-packages": "^3.1.42",
+    "@pnpm/logger": "^4.0.0",
+    "@rollup/plugin-commonjs": "^21.0.2",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@types/gulp": "^4.0.9",
+    "@types/lodash-es": "^4.17.6",
+    "@types/rollup-plugin-css-only": "^3.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "@vitejs/plugin-vue-jsx": "^1.3.8",
+    "@vue/tsconfig": "^0.1.3",
+    "@wx-ui/eslint-config": "workspace:*",
+    "chalk": "^5.0.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "esbuild": "^0.14.25",
+    "eslint": "^8.15.0",
+    "eslint-define-config": "^1.3.0",
+    "eslint-plugin-vue": "^8.7.1",
+    "fast-glob": "^3.2.11",
+    "gulp": "^4.0.2",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2",
+    "pretty-quick": "^3.1.3",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.70.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-esbuild": "^4.8.2",
+    "rollup-plugin-filesize": "^9.1.2",
+    "sucrase": "^3.20.3",
+    "typescript": "^4.5.4",
+    "unplugin-vue-define-options": "^0.4.0",
+    "vite": "^2.8.0",
+    "vue": "^3.2.25",
+    "vue-tsc": "^0.29.8"
+  },
+  "pnpm": {
+    "overrides": {
+      "jsdom": "16.4.0"
+    }
+  }
+}

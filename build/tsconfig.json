@@ -1,0 +1,12 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.node.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "ES2021",
+    "lib": ["ES2021"],
+    "types": ["node"],
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["**/*"]
+}
